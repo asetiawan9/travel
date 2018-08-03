@@ -39,9 +39,9 @@
 				function cer(elem){
 					if (elem.checked) {
 						count = count + 1;
-						if (count>1) {
-							count = 1;
-							alert("Maaf anda hanya boleh memilih 1 kursi !");
+						if (count>13) {
+							count = 13;
+							alert("Maaf anda hanya boleh memilih 13 kursi !");
 							elem.checked = false;
 						}
 					}else{
@@ -140,20 +140,22 @@ $nomor = $i + 1;
 				<tr>
 				<td class="btn-group" width="139">
 				<!--=================================================START 1A=========================================================-->
+
 				<?php
 			    $a1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='1A'"));	
 			  if($a1['nama_kursi']=="1A"){
-			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='1A' id='1A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;1A
+			  echo"<label class='btn btn-warning'> 
+				    <input name='kursi[]' value='1A' id='1A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/1A.png'>
 					</label>";}
 			  else {
-			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='1A' id='1A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;1A
+			  echo"<label class='btn btn-default'> 
+				    <input name='kursi[]' value='1A' id='1A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/1a.png'>
 					</label>";}
 			   ?>
+
 					
 				</td>
-				<td>&nbsp;</td>
+				<td>&nbsp; </td>
 				<td class='btn-group' width='139'>
 			   <!--=================================================START 1D=========================================================-->	
 			   <label class='btn btn-primary'>
@@ -170,11 +172,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='2A'"));	
 			  if($c1['nama_kursi']=="2A"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='2A' id='2A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;2A
+				    <input name='kursi[]' value='2A' id='2A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2a.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='2A' id='2A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;2A
+				    <input name='kursi[]' value='2A' id='2A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2a.png'>
 					</label>";}
 			   ?>
 			   	<!--=================================================START 2B=========================================================-->
@@ -182,11 +184,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='2B'"));	
 			  if($c1['nama_kursi']=="2B"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='2B' id='2B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;2B
+				    <input name='kursi[]' value='2B' id='2B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2b.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='2B' id='2B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;2B
+				    <input name='kursi[]' value='2B' id='2B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2b.png'>
 					</label>";}
 			   ?>
 				</td>
@@ -197,11 +199,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='2C'"));	
 			  if($c1['nama_kursi']=="2C"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='2C' id='2C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;2C
+				    <input name='kursi[]' value='2C' id='2C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2c.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='2C' id='2C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;2C
+				    <input name='kursi[]' value='2C' id='2C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/2c.png'>
 					</label>";}
 			   ?>
 			    <!--=================================================START 2D=========================================================-->
@@ -215,11 +217,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='3A'"));	
 			  if($c1['nama_kursi']=="3A"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='3A' id='3A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;3A
+				    <input name='kursi[]' value='3A' id='3A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3a.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='3A' id='3A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;3A
+				    <input name='kursi[]' value='3A' id='3A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3a.png'>
 					</label>";}
 			   ?>
 				<!--=================================================START 3B=========================================================-->
@@ -227,11 +229,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='3B'"));	
 			  if($c1['nama_kursi']=="3B"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='3B' id='3B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;3B
+				    <input name='kursi[]' value='3B' id='3B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3b.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='3B' id='3B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;3B
+				    <input name='kursi[]' value='3B' id='3B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3b.png'>
 					</label>";}
 			   ?>	
 				</td>
@@ -242,11 +244,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='3C'"));	
 			  if($c1['nama_kursi']=="3C"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='3C' id='3C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;3C
+				    <input name='kursi[]' value='3C' id='3C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3c.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='3C' id='3C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;3C
+				    <input name='kursi[]' value='3C' id='3C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/3c.png'>
 					</label>";}
 			   ?>	
 				</td>
@@ -258,11 +260,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='4A'"));	
 			  if($c1['nama_kursi']=="4A"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='4A' id='4A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;4A
+				    <input name='kursi[]' value='4A' id='4A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4a.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='4A' id='4A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;4A
+				    <input name='kursi[]' value='4A' id='4A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4a.png'>
 					</label>";}
 			   ?>
 				<!--=================================================START 4B=========================================================-->
@@ -270,11 +272,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='4B'"));	
 			  if($c1['nama_kursi']=="4B"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='4B' id='4B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;4B
+				    <input name='kursi[]' value='4B' id='4B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4b.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='4B' id='4B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;4B
+				    <input name='kursi[]' value='4B' id='4B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4b.png'>
 					</label>";}
 			   ?>	
 				</td>
@@ -285,11 +287,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='4C'"));	
 			  if($c1['nama_kursi']=="4C"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='4C' id='4C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;4C
+				    <input name='kursi[]' value='4C' id='4C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4c.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='4C' id='4C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;4C
+				    <input name='kursi[]' value='4C' id='4C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/4c.png'>
 					</label>";}
 			   ?>
 				<!--=================================================START 4D=========================================================-->
@@ -302,11 +304,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='5A'"));	
 			  if($c1['nama_kursi']=="5A"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='5A' id='5A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;5A
+				    <input name='kursi[]' value='5A' id='5A' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5a.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='5A' id='5A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;5A
+				    <input name='kursi[]' value='5A' id='5A' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5a.png'>
 					</label>";}
 			   ?>
 				<!--=================================================START 5B=========================================================-->
@@ -314,11 +316,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='5B'"));	
 			  if($c1['nama_kursi']=="5B"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='5B' id='5B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;5B
+				    <input name='kursi[]' value='5B' id='5B' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5b.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='5B' id='5B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;5B
+				    <input name='kursi[]' value='5B' id='5B' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5b.png'>
 					</label>";}
 			   ?>	
 				</td>
@@ -329,11 +331,11 @@ $nomor = $i + 1;
 			    $c1=mysql_fetch_array(mysql_query("SELECT * FROM kursi WHERE kursi.id_tiket='$_GET[id]' AND nama_kursi='5C'"));	
 			  if($c1['nama_kursi']=="5C"){
 			  echo"<label class='btn btn-warning'>
-				    <input name='kursi[]' value='5C' id='5C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;5C
+				    <input name='kursi[]' value='5C' id='5C' onclick='cer(this)' autocomplete='off' disabled='disabled' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5c.png'>
 					</label>";}
 			  else {
 			  echo"<label class='btn btn-default'>
-				    <input name='kursi[]' value='5C' id='5C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;5C
+				    <input name='kursi[]' value='5C' id='5C' onclick='cer(this)' autocomplete='off' type='checkbox'>&nbsp;<img width='25px' height='30px' src='img/5c.png'>
 					</label>";}
 			   ?>
 				<!--=================================================START 5D=========================================================-->

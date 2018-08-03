@@ -60,7 +60,7 @@ if (!empty($_SESSION['namauser']) AND !empty($_SESSION['namalengkap']) AND !empt
 </div><!--loginpanel-->
 
 <div class="loginfooter">
-    <p>&copy; 2013. Rahmat Sabilludin</p>
+    <p>&copy; 2018. MOBIDU SINERGI</p>
 </div>
 
 </body>

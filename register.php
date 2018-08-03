@@ -4,9 +4,9 @@ if ($sesi == 'mahasiswa'){
 }
 ?>
 <div class="row">
-<div class="col-md-4 col-md-offset-4">
+<div class="col-md-8 col-md-offset-2">
 <div class="panel panel-default">
-    <div class="panel-heading"><span class="glyphicon glyphicon-edit"></span> <b>Register Member Mahasiswa</b></div>
+    <div class="panel-heading"><span class="glyphicon glyphicon-edit"></span> <b>Register Member</b></div>
     <div class="panel-body">
       <form class="form-signin" method="POST" action="aksi_register.php" enctype="multipart/form-data">
         
@@ -14,11 +14,12 @@ if ($sesi == 'mahasiswa'){
 		
 		<input type="number" name="telp" id="inputTelp" class="form-control" placeholder="Nomor HP" required>
 
-        <input type="number" name="nim" id="inputNim" class="form-control" placeholder="Nomor Induk Mahasiswa" required>
+        <input type="number" name="nim" id="inputNim" class="form-control" placeholder="NIK/NIM" required>
 
-        <input type="text" name="kuliah" id="inputKuliah" class="form-control" placeholder="Nama Perguruan tinggi / Universitas" required>
+        <textarea type="text" name="kuliah" id="inputKuliah" class="form-control" placeholder="Alamat" required></textarea>
+        
 		
-		<label style="padding-top:10px" for="">Upload scan kartu mahasiswa</label>
+		<label style="padding-top:10px" for="">Upload Foto KTP/Kartu Mahasiswa</label>
 		
         <input type="file" name="file" id="inputFile" class="form-control" placeholder="Scan Kartu Mahasiswa" required>
 		<label style="padding-top:10px" for=""></label>

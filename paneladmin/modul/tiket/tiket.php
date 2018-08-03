@@ -145,12 +145,12 @@ echo "<div class='content'>
 					
 					
 					 <div class='row-form clearfix'>
-                            <div class='span3'>Harga Umum</div>
+                            <div class='span3'>Harga Dewasa</div>
                             <div class='span9'><input type='text' name='harga' value='$r[harga]'/></div>
                     </div>
 
                     <div class='row-form clearfix'>
-                            <div class='span3'>Harga Mahasiswa</div>
+                            <div class='span3'>Harga Anak</div>
                             <div class='span9'><input type='text' name='harga_mahasiswa' value='$r[harga_mahasiswa]'/></div>
                     </div>
 					
@@ -245,12 +245,12 @@ echo "<div class='content'>
                         </div>
 					
 					 <div class='row-form clearfix'>
-                            <div class='span3'>Harga Umum</div>
+                            <div class='span3'>Harga Dewasa</div>
                             <div class='span9'><input type='text' name='harga' placeholder='misal : 75000' required/></div>
                     </div>
 					
 					<div class='row-form clearfix'>
-                            <div class='span3'>Harga Mahasiswa</div>
+                            <div class='span3'>Harga Anak</div>
                             <div class='span9'><input type='text' name='harga_mahasiswa' placeholder='misal : 70000' required/></div>
                     </div>
 					

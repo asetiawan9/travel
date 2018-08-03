@@ -343,7 +343,7 @@
 					 while($customer=mysql_fetch_array($tampilcus))
 					 {	   
                      echo"<div class='item clearfix'>
-                                <div class='image'><a href='#'><img src='img/users/aqvatarius_s.jpg' width='32'/></a></div>
+                                <div class='image'><a href='#'><img src='img/users/logo.jpg' width='32'/></a></div>
                                 <div class='info'>
                                     <a href='?p=kustomer&aksi=detail&id=$customer[id_kustomer]' class='name'>$customer[nama_lengkap]</a>                                                                    
                                     <div class='controls'>"; 

@@ -64,7 +64,7 @@
 
 </script>
 <div class="row">
-<div class="col-sm-4">
+<div class="col-sm-12">
   <div class="panel panel-default">
     <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> <b>Konfirmasi Pembayaran</b></div>
     <div class="panel-body">
@@ -120,7 +120,7 @@
         </form></div>
 </div>
   </div>
-  <div class="col-sm-8">
+ <!--  <div class="col-sm-8">
   <div class="blueberry">
     <ul class="slides" style="list-style-type: none;">
                 
@@ -136,5 +136,5 @@
     }?>
       </ul>
       </div>
-    </div>
+    </div> -->
 </div>

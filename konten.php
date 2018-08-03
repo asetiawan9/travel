@@ -71,4 +71,7 @@ if  ($_GET['hal']=='register')
 if  ($_GET['hal']=='login')
 { include "login.php";}
 
+if  ($_GET['hal']=='permision')
+{ include "permision.php";}
+
 ?>

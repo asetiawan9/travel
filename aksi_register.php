@@ -43,7 +43,7 @@ if(isset($_POST['register']) && $_FILES['file']['size']>0)
 							mysql_query("INSERT INTO members(nama,telp,nim,universitas,path_idcard,email,password) VALUES('$nama','$telp','$nim','$kuliah','$target_path','$email','$password')");
 
 							echo '<script>window.alert("Register Berhasil..! Dimohon menunggu 24/1, akun sedang dalam proses verifikasi.")</script>';
-    						echo "<meta http-equiv='refresh' content='0; url=master.php?hal=home'>";
+    						echo "<meta http-equiv='refresh' content='0; url=master.php?hal=login'>";
 
 						
 						}else{

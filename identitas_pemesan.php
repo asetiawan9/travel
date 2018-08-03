@@ -52,6 +52,18 @@ $getDi = mysql_fetch_array($naikDi);
           <input name='naik[]' cols='18' rows='3' class='input-block-level form-control' value='<?php echo $getDi['nama_kota']; ?>' readonly></input>
         </div>
       </div>
+
+      <div class='form-group'>
+        <div class='col-sm-12'>
+
+          <select  class='input-block-level form-control' >
+            <option>-- Kategori Penumpang --</option>
+            <option>Dewasa</option>
+            <option>Anak-Anak</option>
+          </select>
+         
+        </div>
+      </div>
   </div>
   </div>
   </div>

@@ -15,7 +15,7 @@ if(isset($_POST['login']))
  if($row['password']==md5($upass))
  {
   $_SESSION['mahasiswa'] = $row['nim'];
-  header("Location: master.php?hal=home");
+  header("Location: master.php?hal=permision");
  }
  else
  {

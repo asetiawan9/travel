@@ -1,3 +1,3 @@
 <?php
-header('location:master.php?hal=home'); 
+header('location:master.php?hal=login'); 
 ?>

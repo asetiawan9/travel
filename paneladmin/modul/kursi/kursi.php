@@ -1,4 +1,5 @@
 <?php
+$aksi="modul/kursi/aksi_kursi.php";
 $act=$_GET[act];
 if ($act=='update-kursi'){
 //hitung jumlah form yang dikirim
@@ -118,7 +119,7 @@ while($p=mysql_fetch_array($penumpang)){
 			 
 			  <td><b><a href=?p=order&act=detailorder&id=$p[id_orders]>$p[id_orders]</a></b></td>
 			  <td><b>$p[nama_penumpang]</b></td>
-			  <td></td>
+			  <td><a href='$aksi?act=hapus&id=$p[id_kursi]&kat=$p'>Hapus<a></td>
 			
 			  </tr>
 			   ";	
