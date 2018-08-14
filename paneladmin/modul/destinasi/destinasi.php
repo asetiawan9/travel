@@ -78,7 +78,6 @@ echo "<div class='content'>
                         </div>
 						
 						
-						
 						 <div class='row-form clearfix'>
                             <div class='span3'>INITIALS</div>
                             <div class='span9'><input type='text' name='initial' value='$r[initial]'/></div>

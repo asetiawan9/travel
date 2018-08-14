@@ -76,47 +76,9 @@ echo "<div class='content'>
                         <h1>Edit tiket</h1>
                     </div>    
 					<input type=hidden name=id value=$r[id_tiket]>
-                     <div class='row-form clearfix'>
-                            <div class='span3'>Kategori</div>
-                            <div class='span9'>
-							<select name='kategori' id='s2_1' style='width: 100%;'>";
-								  $tampil=mysql_query("SELECT * FROM kategori ORDER BY nama_kategori");
-								  if ($r[id_kategori]==0){
-									echo "<option value=0 selected>- Pilih Kategori -</option>";
-								  }   
-								  
-                                  while($w=mysql_fetch_array($tampil)){
-									if ($r[id_kategori]==$w[id_kategori]){
-									  echo "<option value=$w[id_kategori] selected>$w[nama_kategori]</option>";
-									}
-									else{
-									  echo "<option value=$w[id_kategori]>$w[nama_kategori]</option>";
-									}
-								  }                                 
-                       echo"</select>
-							</div>
-                        </div>  
-						<div class='row-form clearfix'>
-                            <div class='span3'>Dari</div>
-                            <div class='span9'>
-							<select name='dari' id='s2_2' style='width: 100%;'>";
-								  $tampil=mysql_query("SELECT * FROM kota ORDER BY nama_kota");
-								  if ($r[dari]==0){
-									echo "<option value=0 selected>- Pilih Kota -</option>";
-								  }   
-								  
-                                  while($w=mysql_fetch_array($tampil)){
-									if ($r[dari]==$w[id_kota]){
-									  echo "<option value=$w[id_kota] selected>$w[nama_kota]</option>";
-									}
-									else{
-									  echo "<option value=$w[id_kota]>$w[nama_kota]</option>";
-									}
-								  }                                 
-                       echo"</select>
-							</div>
-                        </div>
-						
+                                        
+                         <div class='span9'><input  type='hidden' name='kategori' value='1'></div>
+
 						<div class='row-form clearfix'>
                             <div class='span3'>Ke</div>
                             <div class='span9'>
@@ -204,18 +166,10 @@ echo "<div class='content'>
                             <div class='span9'><input type='text' id='datepicker' name='tgl_masuk' required/></div>
                     </div>
 						 
-					<div class='row-form clearfix'>
-                            <div class='span3'>Kategori</div>
-                            <div class='span9'>
-							<select name='kategori' id='s2_1' style='width: 100%;'>
-								  ";
-										$tampil=mysql_query("SELECT * FROM kategori ORDER BY nama_kategori");
-										while($r=mysql_fetch_array($tampil)){
-										  echo "<option value=$r[id_kategori]>$r[nama_kategori]</option>";
-										}                               
-                       echo"</select>
-							</div>
-                        </div>  
+				
+							<div class='span9'><input type='hidden' name='kategori' value='1'></div>
+			
+                       
 						
 					
 					 <div class='row-form clearfix'>

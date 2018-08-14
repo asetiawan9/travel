@@ -1,6 +1,11 @@
 <?php 
-  error_reporting(0);
+  //error_reporting(0);
   session_start();	
+	if (empty($_SESSION['mahasiswa'])){
+
+	 header("Location: login.php");
+	}else{
+		
   include "config/koneksi.php";
   include "config/fungsi_indotgl.php";
   include "config/pagingtiket.php";
@@ -8,17 +13,19 @@
   include "config/library.php";
   include "config/fungsi_autolink.php";
   include "config/fungsi_rupiah.php";
-  include "hapus_orderfiktif.php";
-
+ // include "hapus_orderfiktif.php";
 
 
   if(isset($_SESSION['mahasiswa'])!="" || NULL)
 	{
 		$sesi = 'mahasiswa';
+		//$sesi2 = 'member_id';
  		$res=mysql_query("SELECT * FROM members WHERE nim=".$_SESSION['mahasiswa']);
+
 
 		$userRow=mysql_fetch_array($res);
 	}
+
 	function limit_words($string, $word_limit){
     	$words = explode(" ",$string);
     	return implode(" ",array_splice($words,0,$word_limit));
@@ -109,289 +116,16 @@
 			{include "menu.php";}
 		if ($_GET['hal']=='info-pembayaran')
 			{include "menu.php";}
+		if ($_GET['hal']=='edit-profil')
+			{include "menu.php";}
 		 ?>
+
 		<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-			<img style="
+			<a href="master.php?hal=home"><img style="
 			padding-left: 10px;
 			margin-top: 5px;
-			margin-bottom:  5px;  " width="150px" height="50px" src="img/logo.png">
+			margin-bottom:  5px;  " width="150px" height="50px" src="img/logo.png"></a>
 
-<!-- 		  <div class="container">
-		    <div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-		      <a class="navbar-brand" href="master.php?hal=home" style="margin-left: -60px"><span class="glyphicon glyphicon-lock"></span>  TICKETING</a>
-		    </div>
-		    <div class="navbar-collapse collapse">
-
-		      <ul class="nav navbar-nav">
-			  <?php
-			  if ($_GET['hal']=='home')
-			  {echo "
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		        <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		        echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  <?php
-			  if ($_GET['hal']=='all-tiket')
-			  {echo"
-			  <li class='active'><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-				<?php
-			  if ($_GET['hal']=='cari-tiket')
-			  {echo"
-			  <li class='active'><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  <?php
-			  if ($_GET['hal']=='pilih')
-			  {echo"
-			  <li class='active'><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  
-			   <?php
-			  if ($_GET['hal']=='identitas-pemesan')
-			  {echo"
-			  <li class='active'><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			   <?php
-			  if ($_GET['hal']=='simpan-transaksi')
-			  {echo"
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li class='active'><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  
-			   <?php
-			  if ($_GET['hal']=='status-tiket')
-			  {echo"
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li class='active'><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		     <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  <?php
-			  if ($_GET['hal']=='konfirmasi-pembayaran')
-			  {echo"
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li class='active'><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  
-			  <?php
-			  if ($_GET['hal']=='simpan-konfirmasi')
-			  {echo"
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li class='active'><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-			  
-			  <?php
-			  if ($_GET['hal']=='info-pembayaran')
-			  {echo"
-				<li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		        <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		        <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		        <li class='active'><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		        </ul>
-		      <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       ";
-
-		       if ($userRow['nama'] != '') {
-		       	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		       	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		       } else {
-		       echo "
-			    <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  </ul>";}}
-			  ?>
-
-			  <?php
-			  if ($_GET['hal']=='register')
-			  //{echo"
-				// <li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		  //       <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		  //       <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		  //       <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		  //       </ul>
-		  //     <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		  //      ";
-
-		  //      if ($userRow['nama'] != '') {
-		  //      	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		  //      	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		  //      } else {
-		  //      echo "
-			 //    <li class='active'><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			 //    <li><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			 //  </ul>";}}
-			  ?>
-
-			  <?php
-			  //if ($_GET['hal']=='login')
-			//  {echo"
-				// <li><a href='master.php?hal=all-tiket'><span class='glyphicon glyphicon-search'></span>&nbsp;Cari Tiket</a></li>
-		  //       <li><a href='master.php?hal=status-tiket'><span class='glyphicon glyphicon-credit-card'></span>&nbsp;Cek Status Tiket</a></li>
-		  //       <li><a href='master.php?hal=konfirmasi-pembayaran'><span class='glyphicon glyphicon-share'></span>&nbsp;Konfirmasi Pembayaran</a></li>
-		  //       <li><a href='master.php?hal=info-pembayaran'><span class='glyphicon glyphicon-pushpin'></span>&nbsp;Info Pembayaran</a></li>
-
-		  //       </ul>
-		  //     <ul class='nav navbar-nav navbar-right' style='margin-right: -70px;'>
-		       //";
-
-		     //   if ($userRow['nama'] != '') {
-		     //   	echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
-		     //   	echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>";
-		     //   } else {
-		     //   echo "
-			    // <li><a href='master.php?hal=register'><span class='glyphicon glyphicon-user'></span> Register</a></li>
-			  //   <li class='active'><a href='master.php?hal=login'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
-			  // </ul>";}}
-
-			  // ?>
-		     
-		    </div>
-
-		  </div> -->
 
 		</div>
 
@@ -429,3 +163,5 @@
       											   $j2   = mysql_fetch_array($sql2);
 												   echo "$j2[nama_website]";?></kbd></p></div>
    </html>
+
+   <?php } ?>

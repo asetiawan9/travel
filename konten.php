@@ -74,4 +74,7 @@ if  ($_GET['hal']=='login')
 if  ($_GET['hal']=='permision')
 { include "permision.php";}
 
+if  ($_GET['hal']=='edit-profil')
+{ include "edit_profil.php";}
+
 ?>

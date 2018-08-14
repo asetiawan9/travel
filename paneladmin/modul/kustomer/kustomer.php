@@ -25,7 +25,7 @@ echo "<div class='content'>
                                     <th><input type='checkbox' name='checkbox'/></th>
                                     <th width='25%'>Nama Kustomer</th>
                                     <th width='25%'>Alamat</th>
-									<th width='25%'>Telp</th>
+									                  <th width='25%'>Telp</th>
                                     <th width='25%'>Aksi</th>                                   
                                 </tr>
                             </thead>
@@ -45,7 +45,7 @@ echo "<div class='content'>
                                     <td><input type='checkbox' name='checkbox'/></td>
                                     <td><a href='?p=kustomer&aksi=kiriminvoice&id=$r[id_kustomer]'>$r[nama_lengkap]</a> [Point$r[point]] </td>
                                     <td>$r[alamat]</td>
-									<td>$r[telpon] <br>Aktif : <strong>$r[aktif]</strong> <br/> Type Member: <strong>$typeMember</strong></td>
+									                  <td>$r[telpon] <br>Aktif : <strong>$r[aktif]</strong> <br/> </td>
                                     <td><a href='?p=kustomer&aksi=detail&id=$r[id_kustomer]'>Detail | <a>
 										<a href='$aksi?act=hapus&id=$r[id_kustomer]'>Hapus<a></td>
                                     

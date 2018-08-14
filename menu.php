@@ -248,7 +248,7 @@ h1 {
       <br>
       <?php 
       if ($userRow['nama'] != '') {
-            echo "<li><a href='#'>Hello, <strong>".$cetakNama."</strong></a></li>";
+            echo "<li><a href='master.php?hal=edit-profil'>Hello, <strong>".$cetakNama."</strong></a></li>";
             echo "<li><a href='logout.php?logout'><span class='glyphicon glyphicon-log-out'></span> Logout </a></li>";
            ;}
             ?>

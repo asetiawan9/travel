@@ -26,11 +26,13 @@ $data = mysql_fetch_array($sql);
 					  $jumlah = count($_POST['nama']);
 			//jika hanya akan memproses data yang nim dan namanya tidak kosong
 					for($a=0; $a<$jumlah; $a++){
-					$urut			= $a+1;
-					$nama			= $_POST['nama'][$a];
-					$naik			= $_POST['naik'][$a];
-					$email			= $_POST['email'][$a];
-					$kursi			= $_POST['kursi'][$a];
+					$urut					= $a+1;
+					$nama					= $_POST['nama'][$a];
+					$naik					= $_POST['naik'][$a];
+					$email					= $_POST['email'][$a];
+					$kursi					= $_POST['kursi'][$a];
+					$kategori_penumpang		= $_POST['kategori_penumpang'][$a];
+
 					
 					if(trim($nama) !="" and trim($naik) !=""){
 					
@@ -39,12 +41,14 @@ $data = mysql_fetch_array($sql);
 														   id_orders,
 														   nama_kursi,
 														   nama_penumpang,
-														   naik) 
+														   naik,
+														   kategori_penumpang) 
 													VALUES('$_POST[tiket]',
 														   '$data[id_orders]',
 														   '$kursi',
 														   '$nama',
-														   '$naik')");		
+														   '$naik',
+														   '$kategori_penumpang')");		
 												   
 					}	
 					}
@@ -52,20 +56,68 @@ $data = mysql_fetch_array($sql);
 
 
 			if(isset($_POST['btnSave'])){
+				$kategori_penumpang = $_POST['kategori_penumpang'];
+				$hrg = 0;
+				$harga_sementara = 0;
+				$grand_total = 0;
+				$potongan_diskon = 0;
 				$id_tiket = $_POST['tiket'];
 				$jmlKursi = $_GET['jml'];
 
 				$getHrg = mysql_query("SELECT * FROM tiket WHERE id_tiket = '$id_tiket'");
 						$dataHrg = mysql_fetch_array($getHrg);
-				if (empty($_SESSION['mahasiswa'])) {
-					$disc     = ($dataHrg['diskon']/100)*$dataHrg['harga'];
-					$hrgdisc = $dataHrg['harga']-$disc;
-					$hrg = $hrgdisc*$jmlKursi;
-				} else {
-					$disc     = ($dataHrg['diskon']/100)*$dataHrg['harga'];
-					$hrgdisc = $dataHrg['harga']-$disc;
-					$hrg = $hrgdisc*$jmlKursi;
+						
+						$hargaanak = $dataHrg['harga_mahasiswa'];
+						$hargadewasa = $dataHrg['harga'];
+
+						// $kategori_dewasa = $kategori_penumpang >= ['dewasa'];
+						// $kategori_anak 	= $kategori_penumpang >= ['anak'];
+
+						//  $k = $kategori_dewasa and $kategori_anak;
+
+						//  $kon = $k = true;
+
+						// $tambah = $hargaanak+$hargadewasa;
+						// $hasil = "$tambah";
+						 // var_dump($);
+						// var_dump($hasil);
+
+
+				//0,1,2
+
+				$batas_kategori = count($kategori_penumpang);
+
+				for($i = 0; $i < $batas_kategori; $i++)
+				{
+					if($kategori_penumpang[$i] == 'dewasa') {
+						$disc     = ($dataHrg['diskon']/100)*$dataHrg['harga'];
+						$hrgdisc = $dataHrg['harga']-$disc;
+						$hrg = $hrgdisc*$jmlKursi;
+						$harga_sementara = $harga_sementara + $hargadewasa;
+						//echo 'ini dewasa';
+					}elseif($kategori_penumpang[$i] == 'anak') {
+						$disc     = ($dataHrg['diskon']/100)*$dataHrg['harga_mahasiswa'];
+						$hrgdisc = $dataHrg['harga_mahasiswa']-$disc;
+						$hrg = $hrgdisc*$jmlKursi;
+						$harga_sementara = $harga_sementara + $hargaanak;
+					}
+					// else {
+					// 	$gabung		= $hargaanak+$hargadewasa;
+					// 	$disc     = ($dataHrg['diskon']/100)*$gabung;
+					// 	$hrgdisc = $gabung-$disc;
+					// 	$hrg = $hrgdisc*$jmlKursi;
+					// 	 // echo 'ini akan munculllllllllllllllllll';
+					// }
 				}
+
+
+				$potongan_diskon = $harga_sementara*($dataHrg['diskon']/100);
+				$grand_total = $harga_sementara-$potongan_diskon;
+				//echo 'Harga sementara : ' . $harga_sementara;
+				//echo '<br/>Harga setelah diskon : ' . $grand_total;
+
+
+		//		var_dump($gabung);
 				//hitung jumlah form yang dikirim
 					  $jumlah = count($_POST['nama_pemesan']);
 			//jika hanya akan memproses data yang nim dan namanya tidak kosong
@@ -90,10 +142,6 @@ $data = mysql_fetch_array($sql);
 														  '$hp',
 														  '$data[id_orders]')");
 														  
-
- 	
-	
-														  
 					// simpan data pemesanan 
 						mysql_query("INSERT INTO orders(id_orders,
 														tgl_order,
@@ -108,7 +156,7 @@ $data = mysql_fetch_array($sql);
 														'$email',
 														'$id_tiket',
 														'$_GET[jml]',
-														'$hrg')");
+														'$grand_total')");
 					
 					}	
 					}

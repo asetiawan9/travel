@@ -66,13 +66,15 @@
                             <div class='caption yellow'><?php echo "$jmlkota"; ?></div>
                         </div>
                         
-                       <?php
-					   $jmlpengunjung=mysql_result(mysql_query("SELECT COUNT(hits) FROM statistik"), 0);
-					   ?> 
+                        <?php
+                       $jmlmemberbaru=mysql_num_rows(mysql_query('SELECT * FROM members WHERE status="not_activated" ORDER BY id_members ASC'));
+                       ?> 
                         <div class='bb blue'>
-                            <a href='?p=statistik' class='tipb' title='Total Pengunjung'><span class='ibw-users'></span></a>
-                            <div class='caption gray'><?php echo "$jmlpengunjung"; ?></div>
+                           <a href='?p=new-member' class='tipb' title='Member Baru'><span class='ibw-users'></span></a>
+                            <div class='caption red'><?php echo "$jmlmemberbaru"; ?></div>
                         </div>
+                        
+
                     </div>
                     
                 </div>

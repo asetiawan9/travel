@@ -15,6 +15,7 @@ $jmlkursi = count($_POST['kursi']);
 	for($a=0; $a<$jmlkursi; $a++){
 	$nomor	= $a+1;
 	$kursi	= $_POST['kursi'][$a];
+
 	
 	if(trim($kursi) !=""){
 	
@@ -41,25 +42,29 @@ $getDi = mysql_fetch_array($naikDi);
             if (empty($_SESSION['mahasiswa'])){
               echo "<input name='nama[]' maxlength='64' class='form-control' placeholder='Kursi nomor $kursi atas nama ...' title='Nama harus diisi !' type='text'>";
             } else {
-              echo "<input name='nama[]' maxlength='64' class='form-control' type='text' value='$userRow[nama]' readonly>";
+              echo "<input name='nama[]' maxlength='64' class='form-control' type='text' value='$userRow[nama]'>";
             }
           ?>
         </div>
       </div>
+      <!-- 
+      hidden input untuk alamat kostumer -->
+      <input type="hidden" name='naik[]' cols='18' rows='3' class='input-block-level form-control' value='<?php echo $userRow['telp']; ?>' readonly></input>
+
 
       <div class='form-group'>
         <div class='col-sm-12'>
-          <input name='naik[]' cols='18' rows='3' class='input-block-level form-control' value='<?php echo $getDi['nama_kota']; ?>' readonly></input>
+          <input cols='18' rows='3' class='input-block-level form-control' value='<?php echo $getDi['nama_kota']; ?>' readonly></input>
         </div>
       </div>
 
       <div class='form-group'>
         <div class='col-sm-12'>
 
-          <select  class='input-block-level form-control' >
+          <select  class='input-block-level form-control' name="kategori_penumpang[]">
             <option>-- Kategori Penumpang --</option>
-            <option>Dewasa</option>
-            <option>Anak-Anak</option>
+            <option value='dewasa'>Dewasa</option>
+            <option value='anak'>Anak-Anak</option>
           </select>
          
         </div>

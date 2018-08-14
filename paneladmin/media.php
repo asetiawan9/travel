@@ -11,6 +11,7 @@ include "../config/fungsi_indotgl.php";
 include "../config/fungsi_combobox.php";
 include "../config/class_paging.php";
 include "../config/fungsi_rupiah.php";
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="en">
