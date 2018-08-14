@@ -75,7 +75,8 @@
           <div class="form-group">
             <label for="kode_unik" class="col-sm-3 control-label">Nama</label>
             <div class="col-sm-9">
-              <input value= <?php echo $userRow['nama']; ?> name="nama" id="inputNama" maxlength="panjang_maksimal" class="form-control" size="ukuran" autofocus="autofocus" type="text"></div>
+              <input value= <?php echo $userRow['id_members']; ?> name="id_members" id="id_members" type="hidden">
+              <input value= <?php echo $userRow['nama']; ?> name="nama" id="inputNama" class="form-control"  type="text"></div>
           </div>
 
           <div class="form-group">
