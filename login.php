@@ -25,7 +25,7 @@
 <!--===============================================================================================-->
 </head>
 <body>
-    
+    <?php var_dump($_SESSION); ?>
     <div class="limiter">
         <div class="container-login100" style="background-image: url('assets_l/images/img-01.jpg');">
             <div class="wrap-login100 p-t-190 p-b-30">
