@@ -51,7 +51,7 @@
                         </div>
                         
                        <?php
-					   $jmlkomen=mysql_num_rows(mysql_query("select * from konfirmasi"));
+					   $jmlkomen=mysql_num_rows(mysql_query('SELECT * from konfirmasi WHERE status_konfirmasi = "unverified"'));
 					   ?> 
                         <div class='bb red'>
                             <a href='?p=konfirmasi' class='tipb' title='Total Konfirmasi'><span class='ibw-chats'></span></a>

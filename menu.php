@@ -41,7 +41,7 @@ h1 {
 .open {
   position: fixed;
   top: 0px;
-  right: 40px;
+  right: 20px;
   width: 50px;
   height: 50px;
   display: block;

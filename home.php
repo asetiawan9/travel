@@ -71,7 +71,6 @@
     <div class="panel-heading"><span class="glyphicon glyphicon-search"></span> <b>Cari Tiket</b></div>
     <div class="panel-body">
         <div class="alert alert-warning">
-          <?php var_dump($_SESSION); ?>
           <h4>Penting!</h4>
           <p>Sebelum melakukan pemesanan tiket, harap baca terlebih dahulu 
 		  <a href="master.php?hal=info-pembayaran"><b>Info Pembayaran.</b></a>.</p>

@@ -27,7 +27,7 @@ echo "<div class='content'>
                                     <th><input type='checkbox' name='checkbox'/></th>
                                     <th width='25%'>Nama</th>
                                     <th width='25%'>Telp</th>
-									                  <th width='25%'>Universitas</th>
+									                  <th width='25%'>Alamat</th>
                                     <th width='25%'>Aksi</th>                                   
                                 </tr>
                             </thead>
@@ -81,12 +81,12 @@ echo "<div class='content'>
                       </div>
 					
 					  <div class='row-form clearfix'>
-                            <div class='span3'>NIM</div>
+                            <div class='span3'>NIK / NIM</div>
                             <div class='span9'><input type='text' name='email' value='$r[nim]' readonly/></div>
                       </div>
 
 					   <div class='row-form clearfix'>
-                            <div class='span3'>Universitas</div>
+                            <div class='span3'>Alamat</div>
                             <div class='span9'><input type='text' name='nama_lengkap' value='$r[universitas]' readonly/></div>
                         </div>
                       
@@ -106,7 +106,7 @@ echo "<div class='content'>
                   <div class='block-fluid'>                        
                      <div class='head clearfix'>
                         <div class='isw-favorite'></div>
-                        <h1>Kartu Mahasiswa</h1>
+                        <h1>Foto KTP / KTM</h1>
                     </div>                      
                     <div class='row-form clearfix'>
                       <div class='span12'> <img src='../".$r["path_idcard"]."'/> </div>
@@ -186,15 +186,15 @@ echo "<div class='content'>
                             <div class='span9'><input type='number' name='telp' required/></div>
                         </div>
                       <div class='row-form clearfix'>
-                           <div class='span3'>NIM</div>
+                           <div class='span3'>NIK / NIM</div>
                             <div class='span9'><input type='number' name='nim' required/></div>
                         </div>
                       <div class='row-form clearfix'>
-                           <div class='span3'>Universitas</div>
+                           <div class='span3'>Alamat</div>
                             <div class='span9'><input type='text' name='kuliah' required/></div>
                         </div>
                       <div class='row-form clearfix'>
-                           <div class='span3'>Kartu Mahasiswa</div>
+                           <div class='span3'>Foto KTP / KTM</div>
                             <div class='span9'><input type='file' name='file' required/></div>
                         </div>
                       <div class='row-form clearfix'>

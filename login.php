@@ -25,9 +25,8 @@
 <!--===============================================================================================-->
 </head>
 <body>
-    <?php var_dump($_SESSION); ?>
     <div class="limiter">
-        <div class="container-login100" style="background-image: url('assets_l/images/img-01.jpg');">
+        <div class="container-login100" style="background-image: url('assets_l/images/img-01.jpg'); background-repeat: repeat-y;">
             <div class="wrap-login100 p-t-190 p-b-30">
                 <form class="login100-form validate-form" method="POST" action="aksi_login.php">
                     <div class="login100-form-avatar">
@@ -57,11 +56,7 @@
                         </button>
                     </div>
 
-                    <div class="text-center w-full p-t-25 p-b-230">
-                        <a href="#" class="txt1">
-                           
-                        </a>
-                    </div>
+                  
 
                     <div class="text-center w-full">
                         <a class="txt1" href='register.php'>

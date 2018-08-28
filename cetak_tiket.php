@@ -24,7 +24,7 @@
     <meta name="robots" content="index, follow">
     <link rel="shortcut icon" href="foto_logo/favicon.png">
 
-    <title>AyaTravel Print Ticket</title>
+    <title>KPMTrans Print Ticket</title>
 
     <link href="assets/css/bootstrap.css" rel="stylesheet">
 	 <!-- FONTAWESOME STYLES-->
@@ -83,7 +83,7 @@
 		<center>
 		    <h4>
 		        <b>
-		            Aya Travel<br>
+		            KPMTrans<br>
 		            JL. Taman Sari, No. 25, Bandung<br>
 		        </b>
 		    </h4>

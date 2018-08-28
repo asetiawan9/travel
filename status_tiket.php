@@ -66,7 +66,9 @@ echo"<div class='col-sm-4'>
 	   			<form method='post' action='cetak_tiket.php'>
 	   				<input type='hidden' name='kd_tiket' value='$_POST[kode_unik]'>
 	   				<input type='submit' value='Cetak Tiket' name='submit'>
-	   			</form>
+	   			</form>"; ?>
+	   			<a href='download_tiket.php?id=<?php echo $r[id_orders] ?>'> download </a>
+	   			<?php "
 	   		</td>";}
        echo "</tr>";
 			$i++;

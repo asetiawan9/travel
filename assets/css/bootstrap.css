@@ -4921,6 +4921,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse {
   background-color: #007cff;
   border-color: #007cff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .navbar-inverse .navbar-brand {
@@ -5754,7 +5755,10 @@ a.list-group-item.active:focus .list-group-item-text {
 }
 
 .panel-body {
-  padding: 15px;
+ padding-left: 20px;
+ padding-right: 20px;
+  padding-top: 30px;
+  padding-bottom: 80px;
 }
 
 .panel-body:before,

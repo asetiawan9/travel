@@ -92,27 +92,14 @@ echo "<div class='content'>
 
 					   <div class='row-form clearfix'>
                             <div class='span3'>Alamat</div>
-                            <div class='span9'><textarea name='alamat' readonly>$r[alamat]</textarea></div>
+                            <div class='span9'><textarea name='alamat'>$r[alamat]</textarea></div>
                         </div>
                       
 					   <div class='row-form clearfix'>
                             <div class='span3'>Telpon</div>
                             <div class='span9'><input type='text' name='telpon' value='$r[telpon]' readonly/></div>
                         </div>
-						
-						<div class='row-form clearfix'>
-                            <div class='span3'>Discount Type</div>
-                            <div class='span9'>
-							<select name='level' id='s2_1' style='width: 100%;'>
-							<option value='' selected>- Pilih Maskapai -</option>
-							<option value='agent' selected>Agent </option>
-							<option value='corporate' selected>Corporate </option>
-							<option value='platinum' selected>Platinum Member </option>
-							<option value='gold' selected>Gold Member </option>
-							<option value='non' selected>Non Member </option>
-							</select>
-							</div>
-                        </div>";
+						";
 						
 						if ($r[telpon]=='Y')
 						{
